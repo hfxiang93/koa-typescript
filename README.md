@@ -1,6 +1,5 @@
-![KOACH](https://github.com/SystangoTechnologies/Koach/raw/master/static/koach.png)
 
-## KOACH-Typescript
+## KOA-Typescript
 Production ready boilerplate for building APIs in [Typescript(3.4)](https://www.typescriptlang.org/) with [koa2](https://github.com/koajs/koa/), and using SQL database and http/2 as the communication protocol.
 
 
@@ -159,6 +158,8 @@ git clone https://github.com/SystangoTechnologies/Koach-Typescript.git
 * `npm run grunt` Starts server using grunt file
 * `docker-compose up -d` Starts the server for production 
 
+## Database
+npm run db:up ("npx sequelize db:migrate")
 ## Running the server in Docker Container
 
 Prerequisite For Docker Configuration: Docker and docker compose must be installed on the system.
@@ -176,15 +177,3 @@ To view swagger API documentation
 
 Visit [https://localhost:3000/swagger](https://localhost:3000/swagger) to view Swagger UI.
 
-## Contributors
-
-[Sparsh Pipley](https://www.linkedin.com/in/sparsh-pipley-6ab0b1a4/)
-
-[Anurag Vikram Singh](https://www.linkedin.com/in/anuragvikramsingh/)
-
-[Abhishek Parmar](https://www.linkedin.com/in/abhishek-parmar-19a875122/)
-
-[Ayush Sharma](https://www.linkedin.com/in/ayush-sharma-40a520149)
-
-## License
-MIT.

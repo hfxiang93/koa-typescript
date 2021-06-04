@@ -4,6 +4,7 @@
   "description": "a template for developing APIs project into typescript",
   "main": "server.js",
   "scripts": {
+    "db:up": "npx sequelize db:migrate",
     "start": "ts-node src/server/server.ts  ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node dist/server/server.js",
