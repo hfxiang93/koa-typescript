@@ -8,6 +8,8 @@ servers:
 tags:
 - name: Books
   description: Books related API
+- name: Users
+  description: Users related API
 paths:
   /v1/books/{id}:
     get:
@@ -119,6 +121,116 @@ paths:
           description: Something went wrong
           content: {}
       x-codegen-request-body-name: Book Information
+  /v1/users/{id}:
+    get:
+      tags:
+        - Users
+      summary: Get User API
+      description: Get User API
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          description: User Id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: User Information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/userInformation'
+        500:
+          description: Something went wrong
+          content: { }
+    put:
+      tags:
+        - Users
+      summary: Update User API
+      description: Update User API
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          description: User Id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: User Details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userInformation'
+        required: false
+      responses:
+        200:
+          description: user updated Successfully
+          content: { }
+        500:
+          description: Something went wrong
+          content: { }
+      x-codegen-request-body-name: User Information
+    delete:
+      tags:
+        - Users
+      summary: Delete User API
+      description: Delete User API
+      operationId: deleteUser
+      parameters:
+        - name: id
+          in: path
+          description: User Id
+          required: true
+          schema:
+            type: integer
+      responses:
+        204:
+          description: User Deleted Successfully
+          content: { }
+        500:
+          description: Something went wrong
+          content: { }
+  /v1/users/:
+    get:
+      tags:
+      - Users
+      summary: Get All User API
+      description: Get All User API
+      operationId: getAllUsers
+      responses:
+        200:
+          description: All Users Information
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllUsersInformations'
+        500:
+          description: Something went wrong
+          content: {}
+    post:
+      tags:
+      - Users
+      summary: Add User API
+      description: Add User API
+      operationId: addUser
+      requestBody:
+        description: User Details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/userInformation'
+      responses:
+        201:
+          description: User Added Successfully
+          content: {}
+        500:
+          description: Something went wrong
+          content: {}
+      x-codegen-request-body-name: User Information
 components:
   schemas:
     bookInformation:
@@ -151,6 +263,36 @@ components:
             type: number
           totalPage:
             type: integer
+    userInformation:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+        gender:
+          type: string
+        birth:
+          type: string
+        phone:
+          type: string
+    AllUsersInformations:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          username:
+            type: string
+          password:
+            type: string
+          gender:
+            type: string
+          birth:
+            type: string
+          phone:
+            type: string
   securitySchemes:
     Bearer:
       type: apiKey

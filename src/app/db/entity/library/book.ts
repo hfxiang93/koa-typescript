@@ -26,7 +26,7 @@ export interface BookInstance {
 }
 
 export default (sequelize: Sequelize, DataTypes) => {
-    var Book = sequelize.define('Book', {
+    const Book = sequelize.define('Book', {
         name: {
             type: DataTypes.STRING,
             allowNull: false
